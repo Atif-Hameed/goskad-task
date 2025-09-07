@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Colors */
+  --color-cgreen: #f9f9fc;
+  --color-secondary: #7174ff;
+  --color-gray: #f6f9fb;
+  --color-darkBg: #0a2540;
+  
+
+
+  /* Custom Screens */
+  /* --breakpoint-xs: 480px; */
+
+  /* Custom Fonts */
+  --font-helveticaNeue: 'helveticaNeue';
+  --font-alice: 'Alice', serif;
+  --font-alex-brush: 'Alex Brush', cursive;
+
+  /* Custom Gradients */
+
+  /* Custom Shadows */
+}
+
+.hero-gradient {
+  /* default: mobile (< sm) */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+}
+
+/* for sm screens and up */
+@media (min-width: 900px) {
+  .hero-gradient {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+  }
+}
+
+/* .hero-gradient-full {
+  width: 100%;
+  height: 100%;
+  display: block;
+} */
+
+
+/* hide scrollbar but still scrollable */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
