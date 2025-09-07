@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { NEXT_PUBLIC_MAINTENANCE_MODE } from './constant';
 
 export function middleware(req: NextRequest) {
-  const maintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
+  const maintenanceMode = NEXT_PUBLIC_MAINTENANCE_MODE;
 
   const { pathname } = req.nextUrl;
 
