@@ -1,22 +1,13 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { NEXT_PUBLIC_MAINTENANCE_MODE } from './constant';
 
-export function middleware(req: NextRequest) {
-  const maintenanceMode = NEXT_PUBLIC_MAINTENANCE_MODE;
+export function middleware(req: Request) {
+  const maintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
 
-  const { pathname } = req.nextUrl;
+  const url = new URL(req.url);
 
-  if (maintenanceMode && !pathname.startsWith('/maintenance')) {
-    const maintenanceUrl = req.nextUrl.clone();
-    maintenanceUrl.pathname = '/maintenance';
-    return NextResponse.redirect(maintenanceUrl);
+  if (maintenanceMode && !url.pathname.startsWith('/maintenance')) {
+    return NextResponse.redirect(new URL('/maintenance', req.url));
   }
 
   return NextResponse.next();
-}
-
-// Optional: Only run middleware on relevant routes
-export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
-};
+} 

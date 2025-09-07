@@ -1,1 +1,0 @@
-export const NEXT_PUBLIC_MAINTENANCE_MODE = false;
