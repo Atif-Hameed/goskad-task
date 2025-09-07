@@ -22,6 +22,7 @@ const CustomImage: React.FC<CustomImageProps> = ({
             height={height}
             className={`${className} transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
             placeholder="blur"
+            unoptimized
             blurDataURL="/assets/images/placeholder.png"
             priority={priority}
             loading={priority ? 'eager' : 'lazy'}
